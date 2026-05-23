@@ -14,77 +14,36 @@
     <meta name="author" content="ZARO Web Services">
     <meta name="robots" content="index, follow">
 
-    <!--Canonical Link-->
     <link rel="canonical" href="https://zaroweb.in/">
 
-    <!-- SVG Favicon (Glowing Z Icon) -->
+    <!-- SVG Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2306b6d4'/%3E%3Cstop offset='100%25' stop-color='%236366f1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='24' fill='%23030712'/%3E%3Cpath d='M30,30 L70,30 L30,70 L70,70' stroke='url(%23g)' stroke-width='14' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
 
-    <!-- Open Graph / Facebook -->
+    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://zaroweb.in/">
     <meta property="og:title" content="ZARO | Premium Web Development Services">
-    <meta property="og:description" content="ZARO offers premium, unique, and custom web development services for modern brands looking to stand out. Get responsive e-commerce, custom designs, and professional full-stack applications with lifetime hosting.">
+    <meta property="og:description" content="ZARO offers premium, unique, and custom web development services for modern brands looking to stand out.">
     <meta property="og:image" content="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80">
-    <meta property="og:site_name" content="ZARO">
-    <meta property="og:locale" content="en_US">
 
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://zaroweb.in/">
-    <meta name="twitter:title" content="ZARO | Premium Web Development Services">
-    <meta name="twitter:description" content="ZARO offers premium, unique, and custom web development services for modern brands looking to stand out. Get responsive e-commerce, custom designs, and professional full-stack applications with lifetime hosting.">
-    <meta name="twitter:image" content="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80">
-
-    <!-- JSON-LD Structured Data Schema -->
+    <!-- JSON-LD -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "ProfessionalService",
       "name": "ZARO Web Services",
-      "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
-      "@id": "https://zaroweb.in/#service",
       "url": "https://zaroweb.in/",
       "telephone": "+919043379569",
-      "priceRange": "$$",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Online & Remote Web Development Solutions",
         "addressLocality": "Chennai",
         "addressRegion": "Tamil Nadu",
-        "postalCode": "600001",
         "addressCountry": "IN"
       },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": "13.0827",
-        "longitude": "80.2707"
-      },
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday",
-          "Sunday"
-        ],
-        "opens": "00:00",
-        "closes": "23:59"
-      },
-      "sameAs": [
-        "https://linkedin.com",
-        "https://twitter.com",
-        "https://instagram.com"
-      ],
       "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": "4.9",
-        "reviewCount": "24",
-        "bestRating": "5",
-        "worstRating": "1"
+        "reviewCount": "24"
       }
     }
     </script>
@@ -92,9 +51,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
@@ -113,12 +70,37 @@
                 <div class="nav-cta">
                     <a href="#contact" class="btn btn-premium-blink">Start Project</a>
                 </div>
+
+                <!-- Login Button (shown when logged out) -->
                 <button class="login-btn" id="loginBtn" aria-label="Sign In" title="Sign In">
                     <i class="fas fa-user-circle"></i>
                 </button>
-                <div class="user-profile" id="userProfile" style="display: none;">
-                    <img src="https://ui-avatars.com/api/?name=User&background=random" alt="User Profile" class="profile-img" id="profileImg" width="32" height="32">
-                    <span class="user-name" id="userNameDisplay">User</span>
+
+                <!-- User Avatar + Dropdown (shown when logged in) -->
+                <div class="user-avatar-wrap" id="userAvatarWrap" style="display:none; position:relative;">
+                    <button class="user-avatar-btn" id="userAvatarBtn" aria-label="User menu">
+                        <div class="avatar-circle" id="avatarCircle">U</div>
+                    </button>
+                    <div class="user-dropdown" id="userDropdown">
+                        <div class="dropdown-header">
+                            <div class="avatar-circle-lg" id="avatarCircleLg">U</div>
+                            <div class="dropdown-user-info">
+                                <span class="dropdown-name" id="dropdownName">User</span>
+                                <span class="dropdown-email" id="dropdownEmail">user@email.com</span>
+                            </div>
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <a href="profile.html" class="dropdown-item">
+                            <i class="fas fa-user"></i> View Profile
+                        </a>
+                        <a href="profile.html#edit" class="dropdown-item">
+                            <i class="fas fa-pen"></i> Edit Profile
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <button class="dropdown-item dropdown-logout" id="logoutBtn">
+                            <i class="fas fa-sign-out-alt"></i> Sign Out
+                        </button>
+                    </div>
                 </div>
             </div>
             <div class="menu-toggle" id="mobile-menu">
@@ -130,11 +112,11 @@
     </nav>
 
     <main>
+        <!-- ── Hero ─────────────────────────────────────────────────────── -->
         <section id="home" class="hero">
             <div class="hero-content">
                 <h1 class="hero-title">Crafting <span class="italic">Digital</span> Excellence.</h1>
-                <p class="hero-subtitle">We build unique, smooth, and high-performance web experiences that elevate your
-                    brand to the next level.</p>
+                <p class="hero-subtitle">We build unique, smooth, and high-performance web experiences that elevate your brand to the next level.</p>
                 <div class="hero-btns">
                     <a href="#work" class="btn btn-primary">View Our Work</a>
                     <a href="#services" class="btn btn-secondary">Our Services</a>
@@ -151,6 +133,7 @@
             </div>
         </section>
 
+        <!-- ── Services ──────────────────────────────────────────────────── -->
         <section id="services" class="services">
             <div class="container">
                 <div class="section-header">
@@ -161,9 +144,7 @@
                     <div class="service-card">
                         <div class="service-icon">🛒</div>
                         <h3>Shop Development</h3>
-                        <p>Creating all kinds of online shops, e-commerce platforms, and retail websites tailored to
-                            your
-                            products.</p>
+                        <p>Creating all kinds of online shops, e-commerce platforms, and retail websites tailored to your products.</p>
                     </div>
                     <div class="service-card">
                         <div class="service-icon">⚡</div>
@@ -179,6 +160,7 @@
             </div>
         </section>
 
+        <!-- ── Process ────────────────────────────────────────────────────── -->
         <section id="process" class="process">
             <div class="container">
                 <div class="section-header">
@@ -209,7 +191,6 @@
                     </div>
                     <div class="process-step">
                         <div class="step-num">04</div>
-                        <div class="step-num-last">04</div>
                         <div class="step-content">
                             <h3>Launch</h3>
                             <p>Deploying your project with meticulous attention to detail and optimization.</p>
@@ -219,6 +200,7 @@
             </div>
         </section>
 
+        <!-- ── Work ───────────────────────────────────────────────────────── -->
         <section id="work" class="work">
             <div class="container">
                 <div class="section-header">
@@ -229,7 +211,7 @@
                     <div class="work-item" id="project-1">
                         <div class="work-img-container">
                             <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=1200"
-                                alt="ZARO Luxury Fashion E-commerce Responsive Web Development Project" class="work-img" id="img-project-1" width="600" height="375" loading="lazy">
+                                alt="ZARO Luxury Fashion E-commerce" class="work-img" width="600" height="375" loading="lazy">
                             <div class="work-overlay">
                                 <div class="work-info">
                                     <h3>Modern E-commerce</h3>
@@ -241,7 +223,7 @@
                     <div class="work-item" id="project-2">
                         <div class="work-img-container">
                             <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200"
-                                alt="ZARO Fintech Financial Analytics Web Application Project" class="work-img" id="img-project-2" width="600" height="375" loading="lazy">
+                                alt="ZARO Fintech Dashboard" class="work-img" width="600" height="375" loading="lazy">
                             <div class="work-overlay">
                                 <div class="work-info">
                                     <h3>Fintech Dashboard</h3>
@@ -254,19 +236,18 @@
             </div>
         </section>
 
+        <!-- ── Reviews ───────────────────────────────────────────────────── -->
         <section id="reviews" class="reviews">
             <div class="container">
                 <div class="section-header">
                     <span class="section-tag">Testimonials</span>
                     <h2 class="section-title">Client <span class="gradient-text">Feedback</span></h2>
                 </div>
-                
                 <div class="reviews-container">
-                    <!-- Form to submit a new review -->
                     <div class="review-form-wrapper">
                         <form id="reviewForm" class="review-form">
                             <h2>Leave a Review</h2>
-                            <input type="text" id="name" placeholder="Your Name" required>
+                            <input type="text" id="reviewName" placeholder="Your Name" required>
                             <select id="rating" class="form-select" required>
                                 <option value="5">⭐⭐⭐⭐⭐</option>
                                 <option value="4">⭐⭐⭐⭐</option>
@@ -278,10 +259,7 @@
                             <button type="submit" class="btn btn-primary">Submit Review</button>
                         </form>
                     </div>
-
-                    <!-- List of current reviews -->
                     <div class="reviews-list" id="reviewsList">
-                        <!-- Manual Entry 1 -->
                         <div class="review-card">
                             <div class="review-header">
                                 <h4>Sarah Johnson</h4>
@@ -291,8 +269,6 @@
                             </div>
                             <p>"Zaro's web development services are absolutely top-notch! The communication and speed of delivery were amazing."</p>
                         </div>
-                        
-                        <!-- Manual Entry 2 -->
                         <div class="review-card">
                             <div class="review-header">
                                 <h4>Michael Smith</h4>
@@ -307,23 +283,21 @@
             </div>
         </section>
 
+        <!-- ── Contact ───────────────────────────────────────────────────── -->
         <section id="contact" class="contact">
             <div class="container">
                 <div class="contact-container">
                     <div class="contact-content">
-                        <h2 class="section-title">Let's build something <span class="gradient-text italic">extraordinary</span>
-                            together.
-                        </h2>
+                        <h2 class="section-title">Let's build something <span class="gradient-text italic">extraordinary</span> together.</h2>
                         <p>Have a project in mind? We're ready to bring your vision to life.</p>
                         <div class="contact-info">
                             <a href="tel:9043379569" class="contact-link"><i class="fas fa-phone"></i> 9043379569</a>
-                            <a href="mailto:zaroweb.in@gmail.com" class="contact-link"><i class="fas fa-envelope"></i>
-                                zaroweb.in@gmail.com</a>
+                            <a href="mailto:zaroweb.in@gmail.com" class="contact-link"><i class="fas fa-envelope"></i> zaroweb.in@gmail.com</a>
                         </div>
                     </div>
                     <form id="clientForm" class="contact-form">
                         <div class="form-group">
-                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                            <input type="text" id="clientName" name="name" placeholder="Your Name" required>
                         </div>
                         <div class="form-group">
                             <input type="email" id="email" name="email" placeholder="Your Email" required>
@@ -332,13 +306,10 @@
                             <input type="text" id="phone" name="phone" placeholder="Phone Number" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" id="project" name="project" placeholder="Project Type (e.g. E-commerce)"
-                                required>
+                            <input type="text" id="project" name="project" placeholder="Project Type (e.g. E-commerce)" required>
                         </div>
-
                         <div class="form-group">
-                            <textarea id="message" name="message" placeholder="Describe your shop or project details..."
-                                required></textarea>
+                            <textarea id="message" name="message" placeholder="Describe your shop or project details..." required></textarea>
                         </div>
                         <p class="form-note">Includes Lifetime Hosting & Support</p>
                         <button type="submit" class="btn btn-primary">Start Your Low-Cost Project</button>
@@ -361,14 +332,10 @@
                 <div class="footer-col">
                     <h4>Social</h4>
                     <div class="footer-social">
-                        <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i
-                                class="fab fa-linkedin-in"></i></a>
-                        <a href="https://twitter.com" target="_blank" aria-label="Twitter"><i
-                                class="fab fa-twitter"></i></a>
-                        <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i
-                                class="fab fa-instagram"></i></a>
-                        <a href="https://wa.me/9043379569" target="_blank" aria-label="WhatsApp"><i
-                                class="fab fa-whatsapp"></i></a>
+                        <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://twitter.com" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/9043379569" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
             </div>
@@ -378,42 +345,112 @@
         </div>
     </footer>
 
-    <!-- Auth Modal -->
-    <div id="authModal" class="modal-overlay">
+    <!-- ── Firebase Auth Modal ─────────────────────────────────────────── -->
+    <div id="authModal" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Authentication">
         <div class="modal-content auth-modal">
-            <span class="close-modal" id="closeAuthModal">&times;</span>
+            <button class="close-modal" id="closeAuthModal" aria-label="Close">&times;</button>
+
+            <!-- Brand -->
+            <div class="modal-brand">
+                <span class="logo-sm">ZARO<span>.</span></span>
+            </div>
+
+            <!-- Tabs -->
             <div class="modal-header">
                 <button class="auth-tab active" id="tabLogin">Sign In</button>
                 <button class="auth-tab" id="tabSignup">Sign Up</button>
             </div>
-            
-            <form id="loginForm" class="auth-form active">
+
+            <!-- ── Login Form ─────────────────────────────────────────── -->
+            <form id="loginForm" class="auth-form active" novalidate>
+                <!-- Google -->
+                <button type="button" class="btn-google" id="googleLoginBtn">
+                    <svg width="18" height="18" viewBox="0 0 48 48" aria-hidden="true">
+                        <path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"/>
+                        <path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"/>
+                        <path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"/>
+                        <path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"/>
+                    </svg>
+                    Continue with Google
+                </button>
+
+                <div class="auth-divider"><span>or</span></div>
+
                 <div class="form-group">
-                    <input type="email" placeholder="Email Address" required>
+                    <input type="email" id="loginEmail" placeholder="Email Address" autocomplete="email" required>
                 </div>
-                <div class="form-group">
-                    <input type="password" placeholder="Password" required>
+                <div class="form-group password-group">
+                    <input type="password" id="loginPassword" placeholder="Password" autocomplete="current-password" required>
+                    <button type="button" class="toggle-pw" aria-label="Toggle password visibility">
+                        <i class="fas fa-eye"></i>
+                    </button>
                 </div>
-                <button type="submit" class="btn btn-primary" style="width: 100%;">Sign In</button>
-                <p class="form-footer">Forgot your password? <a href="#">Reset it</a></p>
+
+                <div id="loginError" class="auth-error" role="alert" aria-live="polite"></div>
+
+                <button type="submit" class="btn btn-primary auth-submit" id="loginSubmitBtn">
+                    <span class="btn-text">Sign In</span>
+                    <span class="btn-spinner" style="display:none"><i class="fas fa-spinner fa-spin"></i></span>
+                </button>
+
+                <p class="form-footer">
+                    <a href="#" id="forgotPasswordLink">Forgot your password?</a>
+                </p>
             </form>
 
-            <form id="signupForm" class="auth-form">
+            <!-- ── Signup Form ─────────────────────────────────────────── -->
+            <form id="signupForm" class="auth-form" novalidate>
+                <button type="button" class="btn-google" id="googleSignupBtn">
+                    <svg width="18" height="18" viewBox="0 0 48 48" aria-hidden="true">
+                        <path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"/>
+                        <path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"/>
+                        <path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"/>
+                        <path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"/>
+                    </svg>
+                    Continue with Google
+                </button>
+
+                <div class="auth-divider"><span>or</span></div>
+
                 <div class="form-group">
-                    <input type="text" placeholder="Full Name" required>
+                    <input type="text" id="signupName" placeholder="Full Name" autocomplete="name" required>
                 </div>
                 <div class="form-group">
-                    <input type="email" placeholder="Email Address" required>
+                    <input type="email" id="signupEmail" placeholder="Email Address" autocomplete="email" required>
                 </div>
+                <div class="form-group password-group">
+                    <input type="password" id="signupPassword" placeholder="Password (min 6 chars)" autocomplete="new-password" required minlength="6">
+                    <button type="button" class="toggle-pw" aria-label="Toggle password visibility">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                </div>
+
+                <div id="signupError" class="auth-error" role="alert" aria-live="polite"></div>
+
+                <button type="submit" class="btn btn-primary auth-submit" id="signupSubmitBtn">
+                    <span class="btn-text">Create Account</span>
+                    <span class="btn-spinner" style="display:none"><i class="fas fa-spinner fa-spin"></i></span>
+                </button>
+            </form>
+
+            <!-- ── Forgot Password Form ────────────────────────────────── -->
+            <form id="forgotForm" class="auth-form" novalidate style="display:none;">
+                <p class="forgot-desc">Enter your email and we'll send you a reset link.</p>
                 <div class="form-group">
-                    <input type="password" placeholder="Password" required>
+                    <input type="email" id="forgotEmail" placeholder="Email Address" autocomplete="email" required>
                 </div>
-                <button type="submit" class="btn btn-primary" style="width: 100%;">Create Account</button>
+                <div id="forgotError" class="auth-error" role="alert" aria-live="polite"></div>
+                <div id="forgotSuccess" class="auth-success" role="status" aria-live="polite"></div>
+                <button type="submit" class="btn btn-primary auth-submit" id="forgotSubmitBtn">
+                    <span class="btn-text">Send Reset Link</span>
+                    <span class="btn-spinner" style="display:none"><i class="fas fa-spinner fa-spin"></i></span>
+                </button>
+                <p class="form-footer"><a href="#" id="backToLoginLink">← Back to Sign In</a></p>
             </form>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <!-- script.js loaded as module so firebase imports work -->
+    <script type="module" src="script.js"></script>
 </body>
-
 </html>
